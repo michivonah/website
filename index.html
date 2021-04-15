@@ -5,25 +5,24 @@
          <meta name="mobile-web-app-title" content="Michi">
          <meta name="apple-mobile-web-app-title" content="Michi">
          <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+         <link rel="icon" type="image/png" href="icons/favicon.png">
          <link rel="shortcut icon" type="image/svg+xml" href="icons/favicon.svg">
          <link rel="apple-touch-icon" href="icons/favicon.svg" sizes="any">
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
          <link rel="stylesheet" type="text/css" href="style.css"/>
-         <script language="javascript" type="text/javascript" src="script.js"></script>
          <meta charset="UTF-8">
-         <meta name="theme-color" content="#000000">
-         <meta name="mobile-web-app-status-bar-style" content="#ffffff">
-         <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+         <meta name="theme-color" content="#3498db">
+         <meta name="mobile-web-app-status-bar-style" content="#2980b9">
+         <meta name="apple-mobile-web-app-status-bar-style" content="#2980b9">
          <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
          <meta name="mobile-web-app-capable" content="yes">
          <meta name="apple-mobile-web-app-capable" content="yes">
          <link rel="manifest" href="manifest.json">
-         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
-         <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Syne+Mono&display=swap" rel="stylesheet">
 
 </head>
-<body contextmenu="contextmenubrowser">
+<body>
 
       <!-- Loadingscreen -->
       <div id="loading-screen">
@@ -70,13 +69,7 @@
             <h1>Pictures</h1>
             <p>Here you can find some of my taken pictures.</p>
             <div id="picture-container">
-              <div id="picture001" class="picture">
-                <img src="images/controller.jpeg">
-                <div class="img-text">
-                  <p>Xbox Controller</p>
-                </div>
-              </div>
-              <div class="picture">
+              <div class="picture" style="display:none;">
                 <img src="images/img3.jpg">
                 <div class="img-text">
                   <p>Sachseln</p>
@@ -104,6 +97,18 @@
                 <img src="images/img6.jpeg">
                 <div class="img-text">
                   <p>Sachseln</p>
+                </div>
+              </div>
+              <div class="picture">
+                <img src="images/img8.jpg">
+                <div class="img-text">
+                  <p>Zurich Zoo</p>
+                </div>
+              </div>
+              <div class="picture">
+                <img src="images/img9.jpg">
+                <div class="img-text">
+                  <p>Zurich Zoo</p>
                 </div>
               </div>
             </div>
@@ -140,31 +145,19 @@
             <div id="project-container">
               <div class="project-card">
                 <h3>Socialmedia Website</h3>
-                <img src="https://sm.michivonah.ch/favicon.png">
+                <img src="icons/sm-site.png">
                 <p>I created a simple website with a list of all my social media accounts.</p>
                 <a href="https://sm.michivonah.ch/"><button>Visit website</button></a>
               </div>
-              <div class="project-card" style="display:none;">
-                <h3>Assistant Tap</h3>
-                <img src="https://michivonah.github.io/assistant/logo.png">
-                <p>I created an assistant which you can ask for the weather and some other questions.</p>
-                <a href="https://michivonah.github.io/assistant"><button>Open website</button></a>
-              </div>
-              <div class="project-card" style="display:none;">
-                <h3>HTML5 Videoplayer</h3>
-                <img src="https://michivonah.github.io/videoplayer/favicon.svg">
-                <p>I created a easy to use HTML5 videoplayer which you can use to embed a video on your website.</p>
-                <a href="https://github.com/michivonah/videoplayer"><button>Open website</button></a>
-              </div>
               <div class="project-card">
                 <h3>Online Christmas Calendar</h3>
-                <img src="https://michivonah.github.io/christmascalendar/loading-icon.png">
+                <img src="icons/christmas-calendar.png">
                 <p>I created a easy and free to use online christmascalendar, which you can fill with your own content.</p>
                 <a href="https://michivonah.github.io/christmascalendar/"><button>Open website</button></a>
               </div>
               <div class="project-card">
                 <h3>Escape Room Game</h3>
-                <img src="https://escape.michivonah.ch/graphics/media/1.png">
+                <img src="icons/escape-room.png">
                 <p>As final project in school I created a escape room browser game with HTML, CSS and JavaScript. As soon as I presented it in school, you can find it here.</p>
                 <a href="#" style="display:none;"><button>Play now!</button></a>
               </div>
@@ -206,12 +199,6 @@
       <div id="scroll-top">
         <i class="fas fa-chevron-up"></i>
       </div>
-
-      <menu type="context" id="contextmenubrowser" style="display:none;">
-        <menuitem onclick="window.open('https://www.instagram.com/michivonah/', '_self')">Instagram</menuitem>
-        <menuitem onclick="window.open('https://twitter.com/michivonah', '_self')">Twitter</menuitem>
-        <menuitem onclick="window.open('https://github.com/michivonah', '_self')">Github</menuitem>
-      </menu>
 
 
 
