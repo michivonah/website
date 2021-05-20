@@ -572,6 +572,14 @@ body{
         float: none;
         width: calc(100% - 20px);
       }
+      #escape-room img{
+        float: none;
+        width: 100%;
+      }
+      #txt-escaperoom{
+        float: none;
+        width: calc(100% - 20px);
+      }
       #footer{
         width: 100%;
       }
