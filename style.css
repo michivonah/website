@@ -337,8 +337,48 @@ body{
      color: #fff;
    }
 
+   #escape-room{
+     width: 100%;
+     height: auto;
+     float: none;
+     margin-top: 20px;
+   }
+
+   #escape-room img{
+     width: 50%;
+     height: auto;
+     float: none;
+     user-select: none;
+   }
+
+   #txt-escaperoom{
+     float: right;
+     width: calc(50% - 20px);
+     text-align: justify;
+   }
+
+   #txt-escaperoom button{
+     color: var(--maincolor);
+     width: calc(95% - 20px);
+     height: auto;
+     font-size: 22px;
+     border: 2px solid;
+     border-radius: 8px;
+     background: transparent;
+     margin: 10px;
+     outline: none;
+     user-select: none;
+   }
+
+   #txt-escaperoom button:hover{
+     color: #fff;
+     border-color: var(--maincolor);
+     background: var(--maincolor);
+   }
+
    #projects{
      float: none;
+     display: none;
    }
 
    #project-container{
