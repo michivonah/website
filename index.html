@@ -154,7 +154,7 @@
               <div class="milestone">
                 <h4>24th october 2018</h4>
                 <h3>Leister-Tüftelpreis</h3>
-                <p>Marc and I won the "Tüftelpreis" in 2018. <a href="https://www.leister.com/de/news/1810_tueftelpark_wettbewerb">Read more.</a></p>
+                <p>Marc and I won the "Tüftelpreis" in 2018. <a href="https://www.luzernerzeitung.ch/zentralschweiz/obwalden/zwei-junge-erfinder-gewinnen-den-tueftelpreis-in-alpnach-ld.1064659">Read more.</a></p>
               </div>
               <div class="milestone" style="display:none;">
                 <h4>Summer 2021</h4>
@@ -191,7 +191,7 @@
             <img src="https://escape.michivonah.ch/graphics/media/Flyer1.png" alt="Escape Room">
             <div id="txt-escaperoom">
               <h1>Michi&prime;s Escape Room</h1>
-              <p>As final project for school I created a escape browser game with the programming languages HTML, CSS and JavaScript. In the game you are in a room and you have to find out the seven digits code for open the door. To find out these seven numbers you have to solve some riddles. If you are interested in the whole development process you can click <a href="https://www.notion.so/Michi-s-Escape-Room-9ba11f6e71a6449b9bdc222cd7c7f647">here</a> to learn more. If you want play my game, press the following button. Good Luck!</p>
+              <p>As a final project for school, I programmed an Escape Room game. For this I used the programming languages HTML, CSS and JavaScript. If you want to know more about the development process of my game, click <a href="https://www.notion.so/Michi-s-Escape-Room-9ba11f6e71a6449b9bdc222cd7c7f647">here</a>. If you want to play it, click the button below. Good luck.</p>
               <button onclick="window.open('https://escape.michivonah.ch')">Play now!</button>
             </div>
           </div>
@@ -240,7 +240,7 @@
 
       <script>
       // Loading
-      $(window).on("load", function(){
+      window.addEventListener('load', () => {
         if(window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('darkmode') == "true"){
             document.body.style.setProperty('--maincolor', '#3498db');
             document.body.style.setProperty('--secondcolor', '#2980b9');
