@@ -161,6 +161,7 @@ body{
    #contact label p{
      max-width: calc(95% - 45px);
      user-select: none;
+     text-align: justify;
    }
 
    #contact input[type="checkbox"]{
@@ -284,9 +285,10 @@ body{
    }
 
    .milestone{
-     width: calc(40% - 20px);
+     width: calc(40% - 25px);
      height: auto;
      margin: 10px;
+     margin-left: 15px;
      background: var(--maincolor);
      color: #fff;
      border-radius: 8px;
@@ -300,7 +302,7 @@ body{
      height: 125%;
      background: var(--maincolor);
      content: "";
-     left: -20px;
+     left: -15px;
      top: 50%;
      transform: translateY(-50%);
    }
@@ -311,7 +313,7 @@ body{
      height: 16px;
      background: var(--secondcolor);
      content: "";
-     left: -28px;
+     left: -23px;
      top: 15%;
      border-radius: 8px;
    }
@@ -342,6 +344,10 @@ body{
      height: auto;
      float: none;
      margin-top: 20px;
+   }
+
+   #escape-room h1{
+     text-align: left;
    }
 
    #escape-room img{
@@ -557,6 +563,9 @@ body{
         display: block;
         text-align: left;
       }
+      #navbar-links a:first-child {
+        margin-top: 46px;
+      }
       #navbar-links a:hover{
         background: var(--secondcolor);
         color: #fff;
@@ -601,6 +610,20 @@ body{
       }
       .milestone{
         width: calc(90% - 20px);
+      }
+      #contact label p{
+        max-width: calc(95% - 45px);
+        user-select: none;
+        text-align: justify;
+        margin-left: 45px;
+      }
+      #contact input[type="checkbox"]{
+        height: 0;
+        width: 0;
+        opacity: 0;
+        left: 0;
+        position: absolute;
+        display: none;
       }
     }
 
