@@ -357,9 +357,23 @@
           scrollTop.style.display = "flex";
         }
         else{
-          navbar.style.background = "transparent";
-          navbar.style.color = "#000";
-          scrollTop.style.display = "none";
+          if(window.innerWidth <= 640){
+            if(document.getElementById('navbar-links').style.display == "block"){
+              navbar.style.background = "var(--maincolor)";
+              navbar.style.color = "#fff";
+              scrollTop.style.display = "none";
+            }
+            else{
+              navbar.style.background = "transparent";
+              navbar.style.color = "#000";
+              scrollTop.style.display = "none";
+            }
+          }
+          else{
+            navbar.style.background = "transparent";
+            navbar.style.color = "#000";
+            scrollTop.style.display = "none";
+          }
         }
       });
 
