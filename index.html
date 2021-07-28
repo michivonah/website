@@ -4,13 +4,13 @@
          <title>Michi von Ah</title>
          <meta name="mobile-web-app-title" content="Michi">
          <meta name="apple-mobile-web-app-title" content="Michi">
-         <link rel="icon" type="image/png" href="icons/favicon.png">
-         <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-         <link rel="shortcut icon" type="image/png" href="icons/favicon.png">
-         <link rel="apple-touch-icon" href="icons/favicon.png">
-         <link rel="apple-touch-icon" sizes="152x152" href="icons/favicon.png">
-         <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon.png">
-         <link rel="apple-touch-icon" sizes="167x167" href="icons/favicon.png">
+         <link rel="icon" type="image/png" href="icons/favicon-new-256.png">
+         <link rel="icon" type="image/svg+xml" href="icons/favicon-new.svg">
+         <link rel="shortcut icon" type="image/png" href="icons/favicon-new-256.png">
+         <link rel="apple-touch-icon" href="icons/favicon-new-256.png">
+         <link rel="apple-touch-icon" sizes="152x152" href="icons/favicon-new-256.png">
+         <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-new-256.png">
+         <link rel="apple-touch-icon" sizes="167x167" href="icons/favicon-new-256.png">
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
          <link rel="stylesheet" type="text/css" href="style.css"/>
@@ -79,7 +79,7 @@
             <img src="images/michi1.jpeg" alt="Michi von Ah">
             <div id="txt-aboutme">
               <h1>About me</h1>
-              <p>Hi, my name is Michi von Ah and I'm 15 years old. I'm interested in smartphones, computers and electromobility (mainly Tesla). This is my website and here you can find something about me.</p>
+              <p>Hi, my name is Michi von Ah and I'm <var id="age">loading...</var> years old. I'm interested in smartphones, computers and electromobility (mainly Tesla). This is my website and here you can find something about me.</p>
               <div id="about-socialmedia">
                 <a href="https://www.instagram.com/michivonah/"><i class="fab fa-instagram"></i></a>
                 <a href="https://twitter.com/michivonah"><i class="fab fa-twitter"></i></a>
@@ -89,14 +89,17 @@
               </div>
             </div>
           </div>
+        </div>
           <div id="pictures">
+            <div class="inner-width">
             <h1>Pictures</h1>
             <p>Below you can see some pictures which I have taken.</p>
+            </div>
             <div id="picture-container">
-              <div class="picture" style="display:none;">
-                <img src="images/img3.jpg" alt="Sachseln">
+              <div class="picture">
+                <img src="images/img7.jpeg" alt="Astelalp">
                 <div class="img-text">
-                  <p>Sachseln</p>
+                  <p>Astelalp</p>
                 </div>
               </div>
               <div class="picture">
@@ -109,18 +112,6 @@
                 <img src="images/img5.jpg" alt="Burgletsflue">
                 <div class="img-text">
                   <p>Burgletsflue</p>
-                </div>
-              </div>
-              <div class="picture">
-                <img src="images/img7.jpeg" alt="Astelalp">
-                <div class="img-text">
-                  <p>Astelalp</p>
-                </div>
-              </div>
-              <div class="picture">
-                <img src="images/img6.jpeg" alt="Sachseln">
-                <div class="img-text">
-                  <p>Sachseln</p>
                 </div>
               </div>
               <div class="picture">
@@ -144,7 +135,7 @@
               <div class="picture">
                 <img src="images/img11.jpg" alt="Luzern">
                 <div class="img-text">
-                  <p>Luzern</p>
+                  <p>Lucerne</p>
                 </div>
               </div>
               <div class="picture">
@@ -153,8 +144,33 @@
                   <p>Giswil</p>
                 </div>
               </div>
+              <div class="picture">
+                <img src="images/img13.jpeg" alt="Giswil">
+                <div class="img-text">
+                  <p>Giswil</p>
+                </div>
+              </div>
+              <div class="picture">
+                <img src="images/img14.jpeg" alt="Giswil">
+                <div class="img-text">
+                  <p>Giswil</p>
+                </div>
+              </div>
+              <div class="picture">
+                <img src="images/img15.jpeg" alt="Giswil">
+                <div class="img-text">
+                  <p>Giswil</p>
+                </div>
+              </div>
+              <div class="picture">
+                <img src="images/img16.jpeg" alt="Giswil">
+                <div class="img-text">
+                  <p>Melchsee Frutt</p>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="inner-width">
           <div id="milestones">
             <h1>Milestones</h1>
             <p>This are some important milestones of my life.</p>
@@ -179,7 +195,7 @@
                 <h3>School finished</h3>
                 <p>Summer 2021 I finished the obligated school.</p>
               </div>
-              <div class="milestone">
+              <div class="milestone" id="soon-more-milestones">
                 <h4>Future</h4>
                 <h3>Coming soon...</h3>
                 <p>More milestones coming soon...</p>
@@ -247,11 +263,18 @@
 
       <div id="footer">
         <div class="inner-width">
-          <a href="#contact">Contact</a>
+          <a href="#imprint" onclick="toggleImprint()">Imprint</a>
           <a href="https://www.instagram.com/michivonah/"><i class="fab fa-instagram"></i></a>
           <a href="https://twitter.com/michivonah"><i class="fab fa-twitter"></i></a>
           <a href="https://github.com/michivonah"><i class="fab fa-github"></i></a>
           <a id="darkmode-link" onclick="darkmode()"><i class="fas fa-moon" id="darkmode-icon"></i></a>
+
+          <div id="imprint">
+            <h3>Imprint</h3>
+            <p>Michael von Ah</p>
+            <p>Obwalden, Switzerland</p>
+            <p>michi.vonah@gmail.com</p>
+          </div>
         </div>
       </div>
 
@@ -277,6 +300,7 @@
         	}
           var scrollTop = document.getElementById('scroll-top');
           scrollTop.style.display = "none";
+          age(16, 9, 2005);
         $("#loading-screen").fadeOut(750);
       });
 
@@ -299,6 +323,38 @@
           localStorage.setItem('darkmode', 'true');
           console.log('Darkmode activated.');
         }
+      }
+
+      function age(birthday, birthmonth, birthyear){
+        var birthmonth = birthmonth - 1;
+        var ageText = document.getElementById('age');
+        var date = new Date();
+        var year = date.getFullYear();
+        if(date.getMonth() == birthmonth){
+          if(date.getDate() >= birthday){
+            ageText.innerHTML = Number(year) - birthyear;
+          }
+          else{
+            ageText.innerHTML = Number(year) - birthyear - 1;
+          }
+        }
+        else if(date.getMonth() >= birthmonth){
+          ageText.innerHTML = Number(year) - birthyear;
+        }
+        else if(date.getMonth() <= birthmonth){
+          ageText.innerHTML = Number(year) - birthyear - 1;
+        }
+      }
+
+      function toggleImprint(){
+        var imprint = document.getElementById('imprint');
+        imprint.style.display = "block";
+        /*if(imprint.style.display == "none"){
+          imprint.style.display = "block";
+        }
+        else{
+          imprint.style.display = "none";
+        }*/
       }
 
       document.getElementById('toggle-nav').addEventListener("click", function(){
