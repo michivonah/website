@@ -469,6 +469,10 @@ body{
      text-decoration: none;
    }
 
+   #imprint{
+     display: none;
+   }
+
 
    #bitmoji{
      margin-bottom: -25px;
@@ -530,6 +534,10 @@ body{
 
    a:hover{
      text-decoration: underline;
+   }
+
+   var{
+     font-style: normal;
    }
 
 
@@ -632,6 +640,9 @@ body{
         position: absolute;
         display: none;
       }
+      #soon-more-milestones{
+        display: none;
+      }
     }
 
     @media screen and (min-width:820px) and (max-width:959px){
@@ -648,7 +659,7 @@ body{
         width: calc(30% - 5px);
         }
         .picture{
-         flex-basis: 33.33%;
+         flex-basis: 25%;
         }
       }
 
