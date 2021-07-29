@@ -12,8 +12,10 @@
          <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-new-256.png">
          <link rel="apple-touch-icon" sizes="167x167" href="icons/favicon-new-256.png">
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
          <link rel="stylesheet" type="text/css" href="style.css"/>
+         <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
          <meta charset="UTF-8">
          <meta name="description" content="Hi! I'm Michi von Ah and this is my website.">
          <meta name="keywords" content="Michi, Michi von Ah, von Ah, personalwebsite, website, Michael von Ah, von Ah Michael, von Ah Michi, mva, mivo, Michi v.A.">
@@ -75,7 +77,7 @@
           </div>
         </div>
         <div class="inner-width">
-          <div id="about">
+          <div id="about" data-aos="zoom-in">
             <img src="images/michi1.jpeg" alt="Michi von Ah">
             <div id="txt-aboutme">
               <h1>About me</h1>
@@ -90,7 +92,7 @@
             </div>
           </div>
         </div>
-          <div id="pictures">
+          <div id="pictures" data-aos="zoom-in">
             <div class="inner-width">
             <h1>Pictures</h1>
             <p>Below you can see some pictures which I have taken.</p>
@@ -171,7 +173,7 @@
             </div>
           </div>
           <div class="inner-width">
-          <div id="milestones">
+          <div id="milestones" data-aos="zoom-in">
             <h1>Milestones</h1>
             <p>This are some important milestones of my life.</p>
             <div id="milestones-container">
@@ -226,7 +228,7 @@
               </div>
             </div>
           </div>
-          <div id="escape-room">
+          <div id="escape-room" data-aos="zoom-in">
             <img src="https://escape.michivonah.ch/graphics/media/Flyer1.png" alt="Escape Room">
             <div id="txt-escaperoom">
               <h1>Michi&prime;s Escape Room</h1>
@@ -234,7 +236,7 @@
               <button onclick="window.open('https://escape.michivonah.ch')">Play now!</button>
             </div>
           </div>
-          <div id="contact">
+          <div id="contact" data-aos="zoom-in">
             <h1>Contact me</h1>
             <p>If you want contact me, fill out this form or send a mail to <a href="mailto:michi.vonah+contact@gmail.com">michi.vonah@gmail.com</a>.</p>
             <form action="https://formspree.io/f/mdoynogb" method="post" id="contact-form">
@@ -263,7 +265,8 @@
 
       <div id="footer">
         <div class="inner-width">
-          <a href="#imprint" onclick="toggleImprint()">Imprint</a>
+          <a href="#imprint" onclick="toggleSection('imprint')">Imprint</a>
+          <a href="#copyright" onclick="toggleSection('copyright')">Copyright</a>
           <a href="https://www.instagram.com/michivonah/"><i class="fab fa-instagram"></i></a>
           <a href="https://twitter.com/michivonah"><i class="fab fa-twitter"></i></a>
           <a href="https://github.com/michivonah"><i class="fab fa-github"></i></a>
@@ -274,6 +277,19 @@
             <p>Michael von Ah</p>
             <p>Obwalden, Switzerland</p>
             <p>michi.vonah@gmail.com</p>
+          </div>
+
+          <div id="copyright">
+            <h3>Copyright</h3>
+            <p>The content of this page was created by me or I have the rights to use it here.</p>
+            <p>Used resources from others:</p>
+            <ul>
+              <li>Animate on Scroll Libary - michalsnik.github.io/aos</li>
+              <li>Jquery Libary - jquery.com</li>
+              <li>Font Awesome Icons - fontawesome.com</li>
+              <li>Google Fonts - fonts.google.com</li>
+            </ul>
+            <p>All information without guarantee.</p>
           </div>
         </div>
       </div>
@@ -301,6 +317,7 @@
           var scrollTop = document.getElementById('scroll-top');
           scrollTop.style.display = "none";
           age(16, 9, 2005);
+          AOS.init();
         $("#loading-screen").fadeOut(750);
       });
 
@@ -346,15 +363,15 @@
         }
       }
 
-      function toggleImprint(){
-        var imprint = document.getElementById('imprint');
-        imprint.style.display = "block";
-        /*if(imprint.style.display == "none"){
-          imprint.style.display = "block";
+      function toggleSection(sectionName){
+        var section = document.getElementById(sectionName);
+        //section.style.display = "block";
+        if(section.style.display == "block"){
+          section.style.display = "none";
         }
         else{
-          imprint.style.display = "none";
-        }*/
+          section.style.display = "block";
+        }
       }
 
       document.getElementById('toggle-nav').addEventListener("click", function(){
