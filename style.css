@@ -469,7 +469,7 @@ body{
      text-decoration: none;
    }
 
-   #imprint{
+   #imprint, #copyright{
      display: none;
    }
 
