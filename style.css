@@ -454,6 +454,7 @@ body{
      overflow: hidden;
      margin-top: 20px;
      padding: 20px 0px 20px 0px;
+     user-select: none;
    }
 
    #footer a{
@@ -471,6 +472,7 @@ body{
 
    #imprint, #copyright{
      display: none;
+     user-select: text;
    }
 
 
