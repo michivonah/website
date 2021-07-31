@@ -475,21 +475,6 @@ body{
      user-select: text;
    }
 
-
-   #bitmoji{
-     margin-bottom: -25px;
-     margin-left: 0px;
-     margin-right: 0px;
-     display: none;
-   }
-
-   #bitmoji img{
-     height: auto;
-     width: 40%;
-     max-width: 200px;
-     float: right;
-   }
-
    #scroll-top{
      width: 40px;
      height: 40px;
