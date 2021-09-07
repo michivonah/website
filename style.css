@@ -701,6 +701,7 @@ body{
       .hometxt{
         top: 70vh;
         text-align: center;
+        margin: 0;
       }
       .hometxt i{
         display: block;
