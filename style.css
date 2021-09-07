@@ -48,6 +48,17 @@ body{
      position: absolute;
    }
 
+   #loading-svg{
+     z-index: 1006;
+     position: absolute;
+     display: none;
+   }
+
+   #loading-svg svg{
+     transform: scale(0.5);
+     /*animation: typing 4s infinite;*/
+   }
+
    #navbar{
      width: 100%;
      height: 56px;
@@ -107,16 +118,22 @@ body{
    #home{
      width: 100%;
      height: 100vh;
-     background: url(images/img2.jpeg) no-repeat;
+     /*background: url(images/img2.jpeg) no-repeat;*/
      background-size: cover;
      background-position: center;
+     animation: homeimg 8s infinite;
+     transition: all 300ms linear;
    }
 
    .hometxt{
      position: absolute;
-     top: 40vh;
+     top: 75vh;
      margin: 0px 20px 0px 20px;
      color: #fff;
+   }
+
+   .hometxt i{
+     display: none;
    }
 
    #about{
@@ -554,6 +571,33 @@ body{
      }
    }
 
+   @keyframes homeimg{
+     0%, 100%{
+       background: url(images/img2.jpeg) no-repeat;
+       background-size: cover;
+       background-position: center;
+     }
+     33%{
+       background: url(images/img17.jpg) no-repeat;
+       background-size: cover;
+       background-position: center;
+     }
+     66%{
+       background: url(images/img18.jpg) no-repeat;
+       background-size: cover;
+       background-position: center;
+     }
+   }
+
+   @keyframes loadFadeOut{
+     0%{
+       opacity: 1;
+     }
+     100%{
+       opacity: 0;
+     }
+   }
+
    @keyframes swipeIn{
      to{
        margin-left: 0%;
@@ -571,7 +615,8 @@ body{
         position: fixed;
         background: var(--maincolor);
         height: calc(100vh - 46px);
-        width: 80%;
+        width: 100%;
+        max-width: 400px;
         bottom: 0;
         left: 0;
         display: none;
@@ -579,11 +624,12 @@ body{
         transition: .2s all;
         text-transform: uppercase;
         margin-left: -100%;
+        z-index: 1010;
       }
       #navbar-links a{
         font-size: 36px;
-        font-family: 'Syne Mono', monospace;
-        margin: 20px;
+        font-family: 'Ubuntu', sans-serif;
+        margin: 25px;
         display: block;
         text-align: left;
       }
@@ -652,6 +698,13 @@ body{
       #soon-more-milestones{
         display: none;
       }
+      .hometxt{
+        top: 70vh;
+        text-align: center;
+      }
+      .hometxt i{
+        display: block;
+      }
     }
 
     @media screen and (min-width:820px) and (max-width:959px){
@@ -671,6 +724,15 @@ body{
          flex-basis: 25%;
         }
       }
+
+      @media screen and (max-width:160px){
+        #loading{
+          display: none;
+        }
+        #loading-dot{
+          display: none;
+        }
+       }
 
     ::selection {background: var(--secondcolor); color: #ffffff; border-radius: 12px;}
     ::-moz-selection {background: var(--secondcolor); color: #ffffff; border-radius: 12px;}
