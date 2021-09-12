@@ -136,6 +136,7 @@ body{
      display: none;
    }
 
+
    #about{
      width: 100%;
      height: auto;
@@ -397,13 +398,14 @@ body{
    }
 
    #txt-escaperoom button{
-     color: var(--maincolor);
+     color: #fff;
      width: calc(95% - 20px);
      height: auto;
      font-size: 22px;
      border: 2px solid;
      border-radius: 8px;
-     background: transparent;
+     border-color: var(--secondcolor);
+     background: var(--maincolor);
      margin: 10px;
      outline: none;
      user-select: none;
@@ -411,8 +413,8 @@ body{
 
    #txt-escaperoom button:hover{
      color: #fff;
-     border-color: var(--maincolor);
-     background: var(--maincolor);
+     border-color: var(--secondcolor);
+     background: var(--secondcolor);
    }
 
    #projects{
@@ -500,6 +502,7 @@ body{
    #imprint, #copyright{
      display: none;
      user-select: text;
+     transition: .2s linear;
    }
 
    #scroll-top{
@@ -519,12 +522,13 @@ body{
    }
 
    #scroll-top i{
-     margin-top: 5px;
+     margin-top: 0px;
      transition: .1s linear;
+     stroke-width: 3px;
    }
 
    #scroll-top i:hover{
-     margin-top: 0px;
+     margin-top: -5px;
    }
 
    .navicons{
@@ -546,7 +550,7 @@ body{
      text-decoration: none;
    }
 
-   a:hover{
+   .link:hover{
      text-decoration: underline;
    }
 
@@ -699,7 +703,7 @@ body{
         display: none;
       }
       .hometxt{
-        top: 70vh;
+        top: 65vh;
         text-align: center;
         margin: 0;
       }
