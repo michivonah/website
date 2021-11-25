@@ -417,6 +417,41 @@ body{
      background: var(--secondcolor);
    }
 
+   #faq{
+     margin: 0;
+     margin-top: 15px;
+     user-select: none;
+   }
+
+   .faq-object{
+     margin: 15px;
+     background: var(--maincolor);
+     width: calc(100% - 60px);
+     height: auto;
+     color: #fff;
+     border-radius: 8px;
+     position: relative;
+     text-align: justify;
+   }
+
+   .faq-object i{
+     font-size: 24px;
+     margin: 15px;
+     display: inline-flex;
+   }
+
+   .faq-object h3{
+     display: inline-flex;
+   }
+
+   .faq-answer{
+     display: none;
+     padding: 15px;
+     padding-left: 5px;
+     padding-top: 0;
+     /*user-select: text;*/
+   }
+
    #projects{
      float: none;
      display: none;
