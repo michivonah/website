@@ -84,11 +84,16 @@
             <a href="#escape-room">Escape Room <i class="ai-lock-on navicons"></i></a>
             <a href="#faq">FAQ <i class="ai-question navicons"></i></a>
             <a href="#contact">Contact <i class="ai-envelope navicons"></i></a>
-            <a href="#search" style="display:none;"><i class="ai-search"></i></a>
+            <a href="#search" onclick="toggleSection('search');" id="searchBeta" style="display:none;"><i class="ai-search"></i></a>
           </div>
           <a id="toggle-nav"><i id="toggle-nav-icon" class="ai-text-align-right"></i></a>
         </div>
       </nav>
+
+      <div id="search">
+        <input id="searchField" type="text" placeholder="Search" onkeyup="search();">
+        <button><i class="ai-search"></i></button>
+      </div>
 
       <div id="content">
         <div id="home">
@@ -405,11 +410,11 @@
           preloadImg18.src = "images/img18.jpg";
           // initialize AOS
           age(16, 9, 2005);
-          AOS.init();
+          if(!/iPhone|iPad/i.test(navigator.userAgent)) AOS.init();
           // fade out loading screen
-        //$("#loading-screen").fadeOut(750);
-        document.getElementById('loading-screen').style.animation = "loadFadeOut ease 750ms";
-        document.getElementById('loading-screen').style.display = "none";
+          //$("#loading-screen").fadeOut(750);
+          document.getElementById('loading-screen').style.animation = "loadFadeOut ease 750ms";
+          document.getElementById('loading-screen').style.display = "none";
       });
 
       function darkmode(){
@@ -466,12 +471,23 @@
       }
 
       function toggleQuestion(){
-        if(event.target.getElementsByTagName('p')[0].style.display == "none"){
-          event.target.getElementsByTagName('p')[0].style.display = "block";
+        if(event.target.tagName == "DIV"){
+          if(event.target.getElementsByTagName('p')[0].style.display == "none"){
+            event.target.getElementsByTagName('p')[0].style.display = "block";
+          }
+          else{
+            event.target.getElementsByTagName('p')[0].style.display = "none";
+          }
         }
-        else{
-          event.target.getElementsByTagName('p')[0].style.display = "none";
+        else if(event.target.tagName == "H3" || event.target.tagName == "I"){
+          if(event.target.parentElement.getElementsByTagName('p')[0].style.display == "none"){
+            event.target.parentElement.getElementsByTagName('p')[0].style.display = "block";
+          }
+          else{
+            event.target.parentElement.getElementsByTagName('p')[0].style.display = "none";
+          }
         }
+        else console.log("An error occurred while opening this section. Element: {0}", event.target);
       }
 
 
@@ -531,9 +547,11 @@
       document.getElementById('img-aboutme').addEventListener("click", function(){
         if(sessionStorage.getItem('easteregg') != null){
           if(sessionStorage.getItem('easteregg') >= 9){
-            document.body.style.setProperty('--maincolor', '#e67e22');
-            document.body.style.setProperty('--secondcolor', '#d35400');
-            document.getElementById('hometxt').innerHTML = "Hello EasterEgg Hunter!";
+            //document.body.style.setProperty('--maincolor', '#e67e22');
+            //document.body.style.setProperty('--secondcolor', '#d35400');
+            //document.getElementById('hometxt').innerHTML = "Hello EasterEgg Hunter!";
+            document.getElementById('searchBeta').style.display = "block";
+            alert("Beta features activated. Reload to deactivate.");
           }
           else{
             var easteregg = sessionStorage.getItem('easteregg');
@@ -561,7 +579,7 @@
       })*/
 
 
-      $(window).scroll(function(){
+      window.addEventListener('scroll', function(e) {
         var navbar = document.getElementById('navbar');
         var scrollTop = document.getElementById('scroll-top');
         if(this.scrollY > 20){
@@ -589,6 +607,13 @@
           }
         }
       });
+
+      function search(text){
+        var search = document.getElementById('search');
+        var searchField = document.getElementById('searchField');
+        //document.querySelector("#hometxt").textContent="Suchergebnisse";
+        window.find(searchField.value);
+      }
 
       </script>
 </body>
