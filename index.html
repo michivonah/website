@@ -91,8 +91,8 @@
       </nav>
 
       <div id="search">
-        <input id="searchField" type="text" placeholder="Search" onkeyup="search();">
-        <button><i class="ai-search"></i></button>
+        <input id="searchField" type="text" placeholder="Search" onkeyup="search('key');">
+        <button onclick="search('button');"><i class="ai-search"></i></button>
       </div>
 
       <div id="content">
@@ -330,13 +330,14 @@
           <div id="contact" data-aos="zoom-in">
             <h1>Contact me <i class="ai-envelope navicons"></i></h1>
             <p>If you want contact me, fill out this form or send a mail to <a class="link" href="mailto:info@michivonah.ch">info@michivonah.ch</a>.</p>
-            <form action="https://formspree.io/f/mdoynogb" method="post" id="contact-form">
+            <form action="https://submit-form.com/r78Huqot" method="post" id="contact-form">
+              <input type="hidden" name="_redirect" value="https://michivonah.ch/?formSubmitted=true"/>
               <input type="text" name="name" placeholder="Your Name" required>
               <input id="email-field" type="email" name="mail" placeholder="Your E-Mail Adress" required>
               <input id="subject-field" type="text" name="subject" placeholder="Subject">
               <textarea id="message-text" placeholder="Your Text" minlength="6" required name="message"></textarea>
               <input id="terms" type="checkbox" name="terms" required>
-              <label for="terms"><p>I accept that my form submissions will be shared with the formspree service to organize them. You can find out how your data is treated at formspree in their <a class="link" href="https://formspree.io/legal/privacy-policy">privacy policy <i class="ai-link-out"></i></a>.</p></label>
+              <label for="terms"><p>I accept that my form submissions will be shared with the formspark service to organize them. You can find out how your data is treated at formspark in their <a class="link" href="https://formspark.io/legal/privacy-policy/">privacy policy <i class="ai-link-out"></i></a>.</p></label>
               <button name="submit" type="submit">Send <i class="ai-send"></i></button>
             </form>
           </div>
@@ -410,7 +411,7 @@
           preloadImg18.src = "images/img18.jpg";
           // initialize AOS
           age(16, 9, 2005);
-          AOS.init();
+          AOS.init({disable: 'mobile'});
           // fade out loading screen
           //$("#loading-screen").fadeOut(750);
           document.getElementById('loading-screen').style.animation = "loadFadeOut ease 750ms";
@@ -474,17 +475,21 @@
         if(event.target.tagName == "DIV"){
           if(event.target.getElementsByTagName('p')[0].style.display == "none"){
             event.target.getElementsByTagName('p')[0].style.display = "block";
+            event.target.getElementsByTagName('i')[0].style.transform = "rotate(180deg)";
           }
           else{
             event.target.getElementsByTagName('p')[0].style.display = "none";
+            event.target.getElementsByTagName('i')[0].style.transform = "rotate(0deg)";
           }
         }
         else if(event.target.tagName == "H3" || event.target.tagName == "I"){
           if(event.target.parentElement.getElementsByTagName('p')[0].style.display == "none"){
             event.target.parentElement.getElementsByTagName('p')[0].style.display = "block";
+            event.target.parentElement.getElementsByTagName('i')[0].style.transform = "rotate(180deg)";
           }
           else{
             event.target.parentElement.getElementsByTagName('p')[0].style.display = "none";
+            event.target.parentElement.getElementsByTagName('i')[0].style.transform = "rotate(0deg)";
           }
         }
         else console.log("An error occurred while opening this section. Element: {0}", event.target);
@@ -608,11 +613,21 @@
         }
       });
 
-      function search(text){
-        var search = document.getElementById('search');
-        var searchField = document.getElementById('searchField');
-        //document.querySelector("#hometxt").textContent="Suchergebnisse";
-        window.find(searchField.value);
+      function search(searchEvent){
+        if(searchEvent == "button"){
+          var search = document.getElementById('search');
+          var searchField = document.getElementById('searchField');
+          //document.querySelector("#hometxt").textContent="Suchergebnisse";
+          window.find(searchField.value, false);
+        }
+        else if(searchEvent == "key"){
+          if(event.keyCode == 13){
+            var search = document.getElementById('search');
+            var searchField = document.getElementById('searchField');
+            //document.querySelector("#hometxt").textContent="Suchergebnisse";
+            window.find(searchField.value, false);
+          }
+        }
       }
 
       </script>
