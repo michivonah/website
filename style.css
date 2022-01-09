@@ -111,6 +111,10 @@ body{
      color: #fff;
    }
 
+   .section{
+     margin-bottom: 40px;
+   }
+
    #search{
      width: 100%;
      height: 80px;
@@ -210,7 +214,7 @@ body{
 
    #contact{
      float: none;
-     margin-top: 20px;
+     margin-top: 40px;
    }
 
    #contact input{
@@ -289,7 +293,7 @@ body{
    }
 
    #pictures{
-     margin-top: 20px;
+     margin-top: 40px;
    }
 
    #picture-container{
@@ -347,7 +351,7 @@ body{
 
    #milestones{
      margin: auto;
-     margin-top: 20px;
+     margin-top: 40px;
    }
 
    #milestones-container{
@@ -415,7 +419,7 @@ body{
      width: 100%;
      height: auto;
      float: none;
-     margin-top: 20px;
+     margin-top: 40px;
    }
 
    #escape-room h1{
@@ -496,8 +500,7 @@ body{
 
    #projects{
      float: none;
-     display: none;
-     margin-top: 20px;
+     margin-top: 40px;
    }
 
    #project-container{
@@ -517,35 +520,61 @@ body{
      text-align: justify;
    }
 
-   .project-card img{
-     width: 15%;
-     height: auto;
-     float: right;
-     margin: 10px;
-     user-select: none;
-   }
-
    .project-card p{
-     max-width: 80%;
+     max-width: 100%;
+     text-align: justify;
    }
 
-   .project-card h3{
+   .projectsTitle{
+     border-bottom: 2px solid;
+     width: 100%;
+     height: 40px;
+     margin: 0;
+     padding: 0;
+   }
+
+   .projectsTitle h3{
      margin: 10px;
    }
 
+   .projectsTitle img{
+     width: auto;
+     height: 50px;
+     float: right;
+     margin: 0;
+     user-select: none;
+     border-top-right-radius: 8px;
+     position: relative;
+     right: 0;
+     text-align: right;
+     margin-left: calc(100% - 40px);
+     margin-top: -45.5px;
+   }
 
-   .project-card button{
-     width: calc(100% - 20px);
-     height: auto;
-     color: #fff;
+   .projectBtns{
+     display: flex;
+   }
+
+   .projectBtns button{
+     width: 100%;
      background: var(--secondcolor);
-     font-size: 22px;
      border: 2px solid;
-     border-radius: 8px;
-     margin: 10px;
+     color: #fff;
+     font-size: 16px;
+     padding: 5px;
    }
 
-   .project-card button:hover{
+   .projectBtns button:nth-child(1){
+     border-bottom-left-radius: 8px;
+     border-right: 1px solid;
+   }
+
+   .projectBtns button:nth-child(2){
+     border-bottom-right-radius: 8px;
+     border-left: 1px solid;
+   }
+
+   .projectBtns button:hover{
      background: var(--maincolor);
    }
 
