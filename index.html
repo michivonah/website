@@ -13,6 +13,7 @@
          <link rel="apple-touch-icon" sizes="167x167" href="icons/favicon-new-256.png">
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+         <script src="script.js"></script>
          <script src="https://unpkg.com/akar-icons-fonts"></script>
          <link rel="stylesheet" type="text/css" href="style.css"/>
          <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
@@ -84,15 +85,20 @@
             <a href="#escape-room">Escape Room <i class="ai-lock-on navicons"></i></a>
             <a href="#faq">FAQ <i class="ai-question navicons"></i></a>
             <a href="#contact">Contact <i class="ai-envelope navicons"></i></a>
-            <a href="#search" onclick="toggleSection('search');" id="searchBeta" style="display:none;"><i class="ai-search"></i></a>
+            <a href="#search" onclick="toggleSection('search');" id="searchBeta"><i class="ai-search"></i></a>
           </div>
           <a id="toggle-nav"><i id="toggle-nav-icon" class="ai-text-align-right"></i></a>
         </div>
       </nav>
 
       <div id="search">
-        <input id="searchField" type="text" placeholder="Search" onkeyup="search('key');">
+        <input id="searchField" type="text" placeholder="Search" onkeyup="search();">
         <button onclick="search('button');"><i class="ai-search"></i></button>
+        <div id="searchResults">
+          <h3>Search Results</h3>
+          <div id="searchResultsContainer">
+          </div>
+        </div>
       </div>
 
       <div id="content">
@@ -102,7 +108,7 @@
           </div>
         </div>
         <div class="inner-width">
-          <div id="about" class="section" data-aos="zoom-in">
+          <div id="about" class="section" data-section="About" data-aos="zoom-in">
             <img src="images/michi1.jpeg" id="img-aboutme" alt="Michi von Ah">
             <div id="txt-aboutme">
               <h1>About me <i class="ai-person navicons"></i></h1>
@@ -117,7 +123,7 @@
             </div>
           </div>
         </div>
-          <div id="pictures" class="section" data-aos="zoom-in">
+          <div id="pictures" class="section" data-section="Pictures" data-aos="zoom-in">
             <div class="inner-width">
             <h1>Pictures <i class="ai-image navicons"></i></h1>
             <p>Below you can see some pictures which I have taken.</p>
@@ -246,7 +252,7 @@
             </div>
           </div>
           <div class="inner-width">
-          <div id="milestones" class="section" data-aos="zoom-in">
+          <div id="milestones" class="section" data-section="Milestones" data-aos="zoom-in">
             <h1>Milestones <i class="ai-calendar navicons"></i></h1>
             <p>This are some important milestones of my life.</p>
             <div id="milestones-container">
@@ -282,7 +288,7 @@
               </div>
             </div>
           </div>
-          <div id="projects" class="section">
+          <div id="projects" class="section" data-section="Projects">
             <h1>Projects</h1>
             <p>Some of my projects.</p>
             <div id="project-container">
@@ -321,7 +327,7 @@
               </div>
             </div>
           </div>
-          <div id="escape-room" class="section" data-aos="zoom-in">
+          <div id="escape-room" class="section" data-section="Michi's Escape Room" data-aos="zoom-in">
             <img src="icons/escaperoom-flyer.png" alt="Michi's Escape Room">
             <div id="txt-escaperoom">
               <h1>Michi&prime;s Escape Room <i class="ai-lock-on navicons"></i></h1>
@@ -329,7 +335,7 @@
               <button onclick="window.open('https://escape.michivonah.ch')">Play now! <i class="ai-game-controller"></i></button>
             </div>
           </div>
-          <div id="faq" class="section" data-aos="zoom-in">
+          <div id="faq" class="section"  data-section="FAQ - Frequently Asked Questions" data-aos="zoom-in">
             <h1>FAQ - Frequently Asked Questions</h1>
             <div class="faq-object" onclick="toggleQuestion();">
               <i class="ai-chevron-down faq-icon"></i>
@@ -342,7 +348,7 @@
               <p class="faq-answer">I came to computers because I have been interested in computers and other technology since I was very young. When I was a kid, I always wanted my own laptop and often made laptops, printers and more out of cardboard. I was finally able to fulfill my dream of having my own laptop in the second grade.</p>
             </div>
           </div>
-          <div id="contact" class="section" data-aos="zoom-in">
+          <div id="contact" class="section" data-section="Contact" data-aos="zoom-in">
             <h1>Contact me <i class="ai-envelope navicons"></i></h1>
             <p>If you want contact me, fill out this form or send a mail to <a class="link" href="mailto:info@michivonah.ch">info@michivonah.ch</a>.</p>
             <form action="https://submit-form.com/r78Huqot" method="post" id="contact-form">
@@ -418,12 +424,12 @@
           var scrollTop = document.getElementById('scroll-top');
           scrollTop.style.display = "none";
           // preload images
-          var preloadImg02 = new Image();
+          /*var preloadImg02 = new Image();
           preloadImg02.src = "images/img2.jpeg";
           var preloadImg17 = new Image();
           preloadImg17.src = "images/img17.jpg";
           var preloadImg18 = new Image();
-          preloadImg18.src = "images/img18.jpg";
+          preloadImg18.src = "images/img18.jpg";*/
           // initialize AOS
           age(16, 9, 2005);
           AOS.init({disable: 'mobile'});
@@ -515,23 +521,30 @@
         var navbar = document.getElementById('navbar');
         var navbarLinks = document.getElementById('navbar-links');
         var navbarIcon = document.getElementById('toggle-nav-icon');
+        var delay = 300;
         navbar.style.background = "var(--maincolor)";
         navbarLinks.style.color = "#fff";
         if(navbarLinks.style.display == "block"){
-          navbarIcon.classList = "ai-text-align-right"; //ai-text-align-right // ai-cross // fas fa-bars
+          navbarIcon.classList = "blur";
+          setTimeout(function(){
+            navbarIcon.classList = "ai-text-align-right"; //ai-text-align-right // ai-cross // fas fa-bars
+          }, (delay / 2));
           navbarLinks.style.animation = "swipeOut 300ms linear";
           setTimeout(function(){
             navbarLinks.style.marginLeft = "-100%";
             navbarLinks.style.display = "none";
-          }, 300);
+          }, delay);
         }
         else{
           navbarLinks.style.display = "block";
-          navbarIcon.classList = "ai-cross"; // fas fa-times
+          navbarIcon.classList = "blur";
+          setTimeout(function(){
+            navbarIcon.classList = "ai-cross"; // fas fa-times
+          }, (delay / 2));
           navbarLinks.style.animation = "swipeIn 300ms linear";
           setTimeout(function(){
             navbarLinks.style.marginLeft = "0px";
-          }, 300);
+          }, delay);
         }
       });
 
@@ -567,11 +580,7 @@
       document.getElementById('img-aboutme').addEventListener("click", function(){
         if(sessionStorage.getItem('easteregg') != null){
           if(sessionStorage.getItem('easteregg') >= 9){
-            //document.body.style.setProperty('--maincolor', '#e67e22');
-            //document.body.style.setProperty('--secondcolor', '#d35400');
-            //document.getElementById('hometxt').innerHTML = "Hello EasterEgg Hunter!";
-            document.getElementById('searchBeta').style.display = "block";
-            alert("Beta features activated. Reload to deactivate.");
+            enableBeta();
           }
           else{
             var easteregg = sessionStorage.getItem('easteregg');
@@ -583,6 +592,14 @@
           sessionStorage.setItem('easteregg', 0);
         }
       });
+
+      function enableBeta(){
+        //document.body.style.setProperty('--maincolor', '#e67e22');
+        //document.body.style.setProperty('--secondcolor', '#d35400');
+        //document.getElementById('hometxt').innerHTML = "Hello EasterEgg Hunter!";
+        //document.getElementById('searchBeta').style.display = "block";
+        alert("Beta features activated. Reload to deactivate.");
+      }
 
       $(".picture").mouseenter(function(){
         event.target.parentElement.parentElement.getElementsByTagName('div')[0].style.display = "block";
@@ -629,19 +646,52 @@
       });
 
       function search(searchEvent){
-        if(searchEvent == "button"){
-          var search = document.getElementById('search');
-          var searchField = document.getElementById('searchField');
-          //document.querySelector("#hometxt").textContent="Suchergebnisse";
-          window.find(searchField.value, false);
-        }
-        else if(searchEvent == "key"){
-          if(event.keyCode == 13){
-            var search = document.getElementById('search');
-            var searchField = document.getElementById('searchField');
-            //document.querySelector("#hometxt").textContent="Suchergebnisse";
-            window.find(searchField.value, false);
+        var search = document.getElementById('search');
+        var searchField = document.getElementById('searchField');
+        var searchValue = searchField.value.toUpperCase();
+        var content = document.getElementsByClassName('section');
+        var results = document.getElementById('searchResultsContainer');
+        results.innerHTML = "";
+        if(searchValue != ""){
+          for(var i = 0; i < content.length; i++){
+            if(content[i].innerHTML.toUpperCase().indexOf(searchValue) > -1){
+              var resultName = content[i].dataset.section;
+              var resultID = content[i].id;
+              var resultContent = content[i];
+              var resultText = content[i].getElementsByTagName('p')[0].textContent;
+
+              var newResult = document.createElement('div');
+              newResult.classList = "searchResult";
+
+              var newResultName = document.createElement('h3');
+              if(resultName == null || resultName == "") newResultName.textContent = resultID;
+              else newResultName.textContent = resultName;
+
+              var newResultText = document.createElement('p');
+              newResultText.textContent = resultText;
+
+              newResult.appendChild(newResultName);
+              newResult.appendChild(newResultText);
+              results.appendChild(newResult);
+            }
+            if(results.innerHTML == ""){
+              var newResult = document.createElement('div');
+              newResult.classList = "searchResult";
+
+              var newResultName = document.createElement('h3');
+              newResultName.textContent = "No results found.";
+
+              var newResultText = document.createElement('p');
+              newResultText.textContent = "Check your input for spelling mistakes and try again.";
+
+              newResult.appendChild(newResultName);
+              newResult.appendChild(newResultText);
+              results.appendChild(newResult);
+            }
           }
+        }
+        else{
+          results.innerHTML = "";
         }
       }
 
