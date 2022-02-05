@@ -245,15 +245,23 @@ body{
    }
 
    #contact input{
-     color: var(--maincolor);
+     color: #fff;
+     background: var(--maincolor);
      width: calc(95% - 20px);
      height: auto;
-     font-size: 22px;
+     font-size: 1em;
+     font-family: "open sans", sans-serif;
      border: 2px solid;
      border-radius: 8px;
-     background: transparent;
+     border-color: var(--maincolor);
      margin: 10px;
+     padding: 5px;
      outline: none;
+   }
+
+   #contact input::placeholder, #contact textarea::placeholder{
+     color: #fff;
+     font-family: "open sans", sans-serif;
    }
 
    #contact label p{
@@ -305,16 +313,18 @@ body{
    }
 
    #contact-form textarea{
-     color: var(--maincolor);
+     color: #fff;
+     background: var(--maincolor);
      width: calc(95% - 20px);
      height: auto;
      min-height: 200px;
-     font-size: 18px;
-     font-family: "open sans", Arial, sans-serif;
+     font-size: 1em;
+     font-family: "open sans", sans-serif;
      border: 2px solid;
      border-radius: 8px;
-     background: transparent;
+     border-color: var(--maincolor);
      margin: 10px;
+     padding: 5px;
      resize: vertical;
      outline: none;
    }
