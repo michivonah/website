@@ -4,13 +4,13 @@
          <title>Michi von Ah</title>
          <meta name="mobile-web-app-title" content="Michi">
          <meta name="apple-mobile-web-app-title" content="Michi">
-         <link rel="icon" type="image/png" href="icons/favicon-new-256.png">
-         <link rel="icon" type="image/svg+xml" href="icons/favicon-new.svg">
-         <link rel="shortcut icon" type="image/png" href="icons/favicon-new-256.png">
-         <link rel="apple-touch-icon" href="icons/favicon-new-256.png">
-         <link rel="apple-touch-icon" sizes="152x152" href="icons/favicon-new-256.png">
-         <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-new-256.png">
-         <link rel="apple-touch-icon" sizes="167x167" href="icons/favicon-new-256.png">
+         <link rel="icon" type="image/png" href="icons/logo/favicon_256.png">
+         <link rel="icon" type="image/svg+xml" href="icons/logo/logo_black.svg">
+         <link rel="shortcut icon" type="image/png" href="icons/logo/favicon_256.png">
+         <link rel="apple-touch-icon" href="icons/logo/favicon_256.png">
+         <link rel="apple-touch-icon" sizes="152x152" href="icons/logo/favicon_256.png">
+         <link rel="apple-touch-icon" sizes="180x180" href="icons/logo/favicon_256.png">
+         <link rel="apple-touch-icon" sizes="167x167" href="icons/logo/favicon_256.png">
          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
          <script src="script.js"></script>
          <script src="https://unpkg.com/akar-icons-fonts"></script>
@@ -58,7 +58,7 @@
 
       <nav id="navbar">
         <div class="inner-width">
-          <a href="#"><img src="icons/logo3-256x119.png" alt="Logo"></a>
+          <a href="#"><img id="logoImg" src="icons/logo/logo_white.svg" alt="Logo"></a>
           <div id="navbar-links">
             <a href="#">Home <i class="ai-home navicons"></i></a>
             <a href="#about">About me <i class="ai-person navicons"></i></a>
@@ -426,9 +426,11 @@
         var navbar = document.getElementById('navbar');
         var navbarLinks = document.getElementById('navbar-links');
         var navbarIcon = document.getElementById('toggle-nav-icon');
+        var logo = document.getElementById('logoImg');
         var delay = 300;
         navbar.style.background = "var(--maincolor)";
         navbarLinks.style.color = "#fff";
+        logo.src = "icons/logo/logo_white.svg";
         if(navbarLinks.style.display == "block"){
           navbarIcon.classList = "blur";
           setTimeout(function(){
