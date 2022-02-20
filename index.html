@@ -58,7 +58,7 @@
 
       <nav id="navbar">
         <div class="inner-width">
-          <a href="#"><img id="logoImg" src="icons/logo/logo_white.svg" alt="Logo"></a>
+          <a href="#" onclick="scrollToTop();"><img id="logoImg" src="icons/logo/logo_white.svg" alt="Logo"></a>
           <div id="navbar-links">
             <a href="#">Home <i class="ai-home navicons"></i></a>
             <a href="#about">About me <i class="ai-person navicons"></i></a>
@@ -97,12 +97,12 @@
               <h1>About me <i class="ai-person navicons"></i></h1>
               <p>Hi, my name is Michi von Ah and I'm <var id="age">loading...</var> years old. I'm interested in smartphones, computers and electromobility (mainly Tesla). This is my website and here you can find something about me.</p>
               <div id="about-socialmedia">
-                <a href="https://www.instagram.com/michivonah/"><i class="ai-instagram-fill"></i></a>
-                <a href="https://twitter.com/michivonah"><i class="ai-twitter-fill"></i></a>
-                <a href="https://fb.com/vonahmichi"><i class="ai-facebook-fill"></i></a>
-                <a href="https://github.com/michivonah"><i class="ai-github-fill"></i></a>
-                <a href="https://spotify.michivonah.ch"><i class="ai-spotify-fill"></i></a>
-                <a href="https://in.michivonah.ch"><i class="ai-linkedin-fill"></i></a>
+                <a href="https://www.instagram.com/michivonah/"><i class="ai-instagram-fill" data-hover="#8a3ab9"></i></a>
+                <a href="https://twitter.com/michivonah"><i class="ai-twitter-fill" data-hover="#1DA1F2"></i></a>
+                <a href="https://fb.com/vonahmichi"><i class="ai-facebook-fill" data-hover="#4267B2"></i></a>
+                <a href="https://github.com/michivonah"><i class="ai-github-fill" data-hover="#4078c0"></i></a>
+                <a href="https://spotify.michivonah.ch"><i class="ai-spotify-fill" data-hover="#1DB954"></i></a>
+                <a href="https://in.michivonah.ch"><i class="ai-linkedin-fill" data-hover="#0072b1"></i></a>
               </div>
             </div>
           </div>
@@ -457,15 +457,7 @@
 
 
       document.getElementById('scroll-top').addEventListener("click", function(){
-        var speed = 500;
-        var time = 15;
-        var step = (window.scrollY * -1) / (speed / time),
-        scroll = setInterval(function(){
-        if (window.scrollY != 0){
-            window.scrollBy(0, step);
-        }
-        else clearInterval(scroll);
-      },time);
+        scrollToTop();
       });
 
       function easteregg(){
@@ -497,12 +489,20 @@
           picture[i].addEventListener('mouseover', e => {
             if(event.target.tagName == "IMG"){
               event.target.parentElement.parentElement.getElementsByTagName('div')[0].style.display = "block";
+              window.event.stopPropagation();
+            }
+            else{
+              window.event.stopPropagation();
             }
           });
 
           picture[i].addEventListener('mouseout', function(e) {
             if(event.target.tagName == "IMG"){
               event.target.parentElement.parentElement.getElementsByTagName('div')[0].style.display = "none";
+              window.event.stopPropagation();
+            }
+            else{
+              window.event.stopPropagation();
             }
           });
         }
