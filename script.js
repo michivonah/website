@@ -19,6 +19,17 @@ function darkmode(){
   }
 }
 
+function scrollToTop(){
+  var speed = 500;
+  var time = 15;
+  var step = (window.scrollY * -1) / (speed / time),
+  scroll = setInterval(function(){
+  if (window.scrollY != 0){
+      window.scrollBy(0, step);
+  }
+  else clearInterval(scroll);
+},time);
+}
 
 function age(birthday, birthmonth, birthyear){
   var birthmonth = birthmonth - 1;
