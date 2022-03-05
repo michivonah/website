@@ -62,6 +62,19 @@ function toggleSection(sectionName){
   }
 }
 
+function welcome(text){
+  var text = "Welcome to my Website!";
+  document.getElementById('welcoming').innerHTML = "";
+  for(var i = 0; i < text.length; i++){
+    var currentText = document.getElementById('welcoming').innerHTML.replace('|','');
+    setTimeout(function(){
+          document.getElementById('welcoming').innerHTML = currentText + text.charAt(i) + "|";
+    }, 200);
+    document.getElementById('welcoming').innerHTML = currentText + text.charAt(i) + "|";
+  }
+  document.getElementById('welcoming').innerHTML = document.getElementById('welcoming').innerHTML.replace('|','');
+}
+
 function toggleQuestion(){
   if(event.target.tagName == "DIV"){
     if(event.target.getElementsByTagName('p')[0].style.display == "none"){
@@ -85,37 +98,6 @@ function toggleQuestion(){
   }
   else console.log("An error occurred while opening this section. Element: {0}", event.target);
 }
-
-document.getElementById('toggle-nav').addEventListener("click", function(){
-  var navbar = document.getElementById('navbar');
-  var navbarLinks = document.getElementById('navbar-links');
-  var navbarIcon = document.getElementById('toggle-nav-icon');
-  var delay = 300;
-  navbar.style.background = "var(--maincolor)";
-  navbarLinks.style.color = "#fff";
-  if(navbarLinks.style.display == "block"){
-    navbarIcon.classList = "blur";
-    setTimeout(function(){
-      navbarIcon.classList = "ai-text-align-right"; //ai-text-align-right // ai-cross // fas fa-bars
-    }, (delay / 2));
-    navbarLinks.style.animation = "swipeOut 300ms linear";
-    setTimeout(function(){
-      navbarLinks.style.marginLeft = "-100%";
-      navbarLinks.style.display = "none";
-    }, delay);
-  }
-  else{
-    navbarLinks.style.display = "block";
-    navbarIcon.classList = "blur";
-    setTimeout(function(){
-      navbarIcon.classList = "ai-cross"; // fas fa-times
-    }, (delay / 2));
-    navbarLinks.style.animation = "swipeIn 300ms linear";
-    setTimeout(function(){
-      navbarLinks.style.marginLeft = "0px";
-    }, delay);
-  }
-});
 
 function navbarClick(){
   var links = document.getElementById('navbar-links').getElementsByTagName('a');
