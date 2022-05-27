@@ -244,6 +244,7 @@ body{
    #contact{
      float: none;
      margin-top: 40px;
+     display: none;
    }
 
    #contact input{
